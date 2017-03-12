@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Overview Watch</title>
+
+  <!-- Bootstrap -->
+  <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="/vendors/nprogress/nprogress.css" rel="stylesheet">
+
+  <!-- Custom Theme Style -->
+  <link href="/css/custom.min.css" rel="stylesheet">
+
+  <link href="/css/overview.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="css/map-icons.css">
+
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title" style="border: 0;">
+            <a href="contact.html" class="site_title"><span class="text-center">LU.Watch</span></a>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <!-- menu profile quick info -->
+          <div class="profile clearfix">
+            <div class="profile_pic">
+              <img src="images/img3.png" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+              <span>Welcome,</span>
+              <h2>Marie</h2>
+            </div>
+          </div>
+          <!-- /menu profile quick info -->
+
+          <br />
+
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+              <h3>General</h3>
+              <ul class="nav side-menu">
+                <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="index2.html">Dashboard2</a></li>
+                    <li><a href="index3.html">Dashboard3</a></li>
+                  </ul>
+                </li>
+
+              </ul>
+            </div>
+
+
+          </div>
+          <!-- /sidebar menu -->
+
+
+          <!-- /menu footer buttons -->
+        </div>
+      </div>
+
+      <!-- top navigation -->
+      <div class="top_nav">
+        <div class="nav_menu">
+          <nav>
+            <div class="nav toggle">
+              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="">
+                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                  <img src="images/img3.png" alt="">Marie
+                  <span class=" fa fa-angle-down"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                  <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- /top navigation -->
+
+      <!-- page content -->
+      <div class="right_col" role="main">
+        <div class="">
+
+         <div class="test" id="googleMap" style="width:100%;height:400px;bottom: 0px"></div>
+
+
+
+
+         <div class="row">
+          <div class="col-md-12">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Rules</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a data-toggle="modal" data-target="#myModal"><i class="fa fa-plus-circle"></i></a>
+                  </li>
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+
+
+                <!-- start project list -->
+                <table class="table table-striped projects">
+                  <thead>
+                    <tr>
+                      <th style="width: 1%">#</th>
+                      <th style="width: 10%">Name</th>
+                      <th style="width: 20%">Schedule</th>
+                      <th style="width: 15%">Notification</th>
+                      <th style="width: 30%">Description</th>
+                      <th>State</th>
+                      <th style="width: 10%">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="rules">
+                  </tbody>
+                </table>
+                <!-- end project list -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /page content -->
+
+
+    <!-- add rule -->
+
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Add a new rule</h4>
+          </div>
+          <div class="modal-body">
+            <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+
+              <div class="form-group">
+                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">Rule name <span class="required">*</span>
+                </label>
+                <div class="col-md-9 col-sm-9 col-xs-12">
+                  <input type="text" id="ruleName" required="required" class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">Schedule :  
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Days of week <span class="required">*</span>
+                </label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                  <div class="btn-group" role="group" aria-label="...">
+                    <button id="scheduleDayMonday" type="button" class="btn btn-default btn-day">Monday</button>
+                    <button id="scheduleDayTuesday" type="button" class="btn btn-default btn-day">Tuesday</button>
+                    <button id="scheduleDayWednesday" type="button" class="btn btn-default btn-day">Wednesday</button>
+                    <button id="scheduleDayThursday" type="button" class="btn btn-default btn-day">Thursday</button>
+                    <button id="scheduleDayFriday" type="button" class="btn btn-default btn-day">Friday</button>
+                    <button id="scheduleDaySaturday" type="button" class="btn btn-default btn-day">Saturday</button>
+                    <button id="scheduleDaySunday" type="button" class="btn btn-default btn-day">Sunday</button>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Time from <span class="required">*</span> 
+                </label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                  <input type="text" id="timeFrom" required="required" class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Time to <span class="required">*</span> 
+                </label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                  <input type="text" id="timeTo" required="required" class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="control-label col-md-2 col-sm-2 col-xs-12" for="first-name">Notification :  
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Email 
+                </label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                  <input type="text" id="email" required="required" class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Sms 
+                </label>
+                <div class="col-md-8 col-sm-8 col-xs-12">
+                  <input type="text" id="sms" required="required" class="form-control col-md-7 col-xs-12">
+                </div>
+              </div>
+              <br/>
+              <div class=" " role="tabpanel" data-example-id="togglable-tabs">
+                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                  <li role="presentation" class="active"><a href="#tab_content1" id="Google-tab" role="tab" data-toggle="tab" aria-expanded="true">Google</a>
+                  </li>
+                  <li role="presentation" class=""><a href="#tab_content2" role="tab" id="Search-tab" data-toggle="tab" aria-expanded="false">Search</a>
+                  </li>
+                </ul>
+                <div id="myTabContent" class="tab-content ">
+                  <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="Google-tab">
+                    <div class="test" id="googleMap2" style="width:100%;height:300px;bottom: 0px"></div>
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="Search-tab">
+                    <div class="col-md-12">
+                      <div class="input-group col-md-5 ">
+                        <input id="search" class="form-control" placeholder="Search for..." type="text">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default" type="button">Go!</button>
+                        </span>
+                      </div>
+                    </div>
+
+                    <div >
+                      <div class="form-group" id="result">
+                        <button id="scheduleDayMonday" type="button" class="btn btn-default btn-day">Rue chantraine 31 4620 Fléron </button>
+                        <button id="scheduleDayMonday" type="button" class="btn btn-default btn-day">Rue chantraine 31 4620 Fléron </button>
+                        <button id="scheduleDayMonday" type="button" class="btn btn-default btn-day">Rue chantraine 31 4620 Fléron </button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button id="addRule" type="button" class="btn btn-default " >Add</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+    <!--end add rule-->
+
+    <script>
+      function myMap() {
+        var mapProp= {
+          center:new google.maps.LatLng(51.508742,-0.120850),
+          zoom:18,
+          maxZoom:18
+        };
+        var mapProp2= {
+          center:new google.maps.LatLng(51.508742,-0.120850),
+          zoom:18,
+          maxZoom:18
+        };
+        map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+        map2=new google.maps.Map(document.getElementById("googleMap2"),mapProp2);
+
+
+
+        thing = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(51.508742,-0.120850),
+          zindex: 100,
+          title:"Florian"
+        });
+
+        zone = new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(51.508742,-0.120850),
+          zindex: 100,
+          title:"Florian"
+        }); 
+
+
+
+
+      }
+    </script>
+
+
+
+    <!-- footer content -->
+    <footer>
+      <div class="pull-right">
+        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+      </div>
+      <div class="clearfix"></div>
+    </footer>
+    <!-- /footer content -->
+  </div>
+</div>
+
+<!-- jQuery -->
+<script src="/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="/vendors/nprogress/nprogress.js"></script>
+
+<script src="/js/overview.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_2JgxXK9NT6M1oTUUPRKYRb-nTJCY6U8&callback=myMap&libraries=drawing"></script>
+
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script>
+
+<!-- Custom Theme Scripts -->
+<script src="/js/custom.min.js"></script>
+</body>
+</html>

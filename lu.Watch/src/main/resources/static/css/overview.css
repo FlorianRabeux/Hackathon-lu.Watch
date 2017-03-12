@@ -1,0 +1,21 @@
+.titleRule {
+    font-size: 20px;
+    text-align: center;
+}
+
+.textRule {
+    font-size: 15px;
+}
+.col-centered {
+    float: none;
+    margin: 0 auto;
+}
+
+.border {
+    text-align: center;
+    border: 1px solid red;
+}
+
+.toggleHeight {
+    height: 10px;
+}
