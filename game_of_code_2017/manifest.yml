@@ -1,0 +1,31 @@
+---
+applications:
+
+# - name: lu.watch-web
+#   path: web
+#   port: 49013
+#   memory: 100M
+#   env:
+#     destinations: >
+#       [ 
+#         { "name": "xsjs", 
+#         "url": "http://vhcalhdbdb:49015", 
+#         "forwardAuthToken": true}
+#       ]
+#   services:
+#     - lu.watch-uaa
+
+- name: lu.watch-db
+  path: db
+  memory: 256M
+  no-route: true 
+  services:
+    - lu.watch-hdi-container
+    
+- name: lu.watch-xsjs
+  path: xsjs
+  port: 49015
+  memory: 128M
+  services:
+    - lu.watch-hdi-container
+# - lu.watch-uaa

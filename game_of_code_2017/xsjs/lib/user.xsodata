@@ -1,0 +1,3 @@
+service {
+	"be.nrb::LuWatch.Users" as "Users";
+}

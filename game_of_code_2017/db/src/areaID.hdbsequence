@@ -1,0 +1,8 @@
+SEQUENCE "be.nrb::areaID" 
+	INCREMENT BY 1 
+	START WITH 1
+	MINVALUE 1 
+	MAXVALUE 9999999999 
+	NO CYCLE 
+	RESET BY SELECT IFNULL(MAX("id"), 0)+1 
+		FROM "be.nrb::LuWatch.SafeArea" 

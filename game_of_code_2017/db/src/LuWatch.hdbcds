@@ -1,0 +1,48 @@
+namespace be.nrb;
+
+context LuWatch {
+
+	Entity User {
+		key id : Integer;
+		name: String(100);
+		password: String(100);
+		supervisees: Association[*] to Supervisee on supervisees.supervisorID = id;
+	};
+
+	Entity Supervisee{
+		key id: Integer;
+		name : String(100);
+		description: String(100);
+		deviceID: String(100);
+		supervisorID: Integer;
+		supervisedBy: association[1] to User;
+		safaAreas : Association[*] to SafeArea on safaAreas.superviseeID = id;
+ 	};
+
+	type Zone{
+		center : hana.ST_POINT(4326);
+		radius : Integer;
+	};
+
+	type Alert{
+		name: String(100);
+		tel: String(20);
+		mail: String(100);
+	};
+
+	Entity SafeArea{
+		key id: Integer;
+		description: String(100);
+		superviseeID: Integer;
+		assignedTo : Association[1] to Supervisee;
+		zone : Zone;
+		alert: Alert;
+	};
+
+	Entity Position{
+		key superviseeID : Integer;
+		key timestamp: UTCDateTime;
+		loc : hana.ST_POINT(4326);
+		supervisee : Association[1] to Supervisee ;
+	};
+};
